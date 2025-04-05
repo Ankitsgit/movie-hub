@@ -1,9 +1,11 @@
 import { useState } from 'react'
 
-import './App.css'
+import './css/App.css'
 
 import Home from './pages/Home';
 import Favourite from './pages/favourite';
+
+import NavBar from './components/Navbar';
 
 import {Routes ,Route} from "react-router-dom"
 
@@ -17,8 +19,10 @@ function App() {
   return (
 
     //conditional rendering in react {movie number === 1 ?}
-    <>
+    <div>
+      <NavBar/>
       <main className="main-content">
+
         <Routes>
           <Route path="/" element ={<Home/>}/>
           <Route path="/favourites" element ={<Favourite/>}/>
@@ -30,7 +34,7 @@ function App() {
   ) : (
   <MovieCard movie ={{title:"Joes Film" ,release_date: "2024" }}/>
   )} */}
-    </>
+    </div>
   )
 }
 
