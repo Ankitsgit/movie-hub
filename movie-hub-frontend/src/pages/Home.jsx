@@ -1,44 +1,51 @@
-import React ,{useState}from 'react'
-import MovieCard from '../components/moviecard.jsx/Moviecard'
+import React, { useState } from 'react'; // Import React and useState hook
+import MovieCard from '../components/MovieCard'; // Import the MovieCard component
 
 function Home() {
-    
-    cons[searchQuery ,setSearchQuery]=useState("")
+  // State to store the user's search input
+  const [searchQuery, setSearchQuery] = useState("");
 
-    const movies =[
-        {id:1 ,title:'john wick', release_date:"2024"},
-        {id:2 ,title:'Terminator', release_date:"1999"},
-        {id:3 ,title:'The Matrix', release_date:"1998"},
+  // Sample movie data (could be replaced with data from an API later)
+  const movies = [
+    { id: 1, title: 'John Wick', release_date: "2024" },
+    { id: 2, title: 'Terminator', release_date: "1999" },
+    { id: 3, title: 'The Matrix', release_date: "1998" },
+  ];
 
-    ] 
+  // Function to handle form submission
+  const handleSearch = (e) => {
+    e.preventDefault(); // Prevents the page from refreshing
+    alert("Search triggered"); // Simple alert for now
+  };
 
-   const handleSearch =() =>{
-    alet
-
-   }
-
-    
-    
   return (
     <div className="home">
-        {/* <form onSubmit={handleSearch} className="search-form">
-            <input 
-             type="text"
-             placeholder='search for movies..'
-             className ="search-input"
-             value ={searchQuery}
-             onChange = {(e) =>setSearchQuery(e.target.value)}
-            />
-            <button  type ="submit" className="search-button">Search</button>
-        </form>
-        <div className="movie-grid">
-            {movies.map((movies) =>(
-            <MovieCard movie={movies} key={movies.id}/>))}
-        </div> */}
+      {/* Search Form */}
+      <form onSubmit={handleSearch} className="search-form">
+        <input
+          type="text"
+          placeholder="Search for movies..." // Input placeholder text
+          className="search-input"
+          value={searchQuery} // Input value bound to state
+          onChange={(e) => setSearchQuery(e.target.value)} // Updates state on typing
+        />
+        <button type="submit" className="search-button">Search</button>
+      </form>
 
+      {/* Movie Grid Section */}
+      <div className="movie-grid">
+        {movies.map((movie) =>
+          // Filter movies based on the search query (case-insensitive)
+          movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()) && (
+            // Render MovieCard for each matching movie
+            <MovieCard movie={movie} key={movie.id} />
+          )
+        )}
+      </div>
     </div>
-
-  )
+  );
 }
 
-export default Home
+export default Home; // Export the Home component
+
+
