@@ -1,6 +1,8 @@
 import React, { useState } from 'react'; // Import React and useState hook
 import MovieCard from '../components/MovieCard'; // Import the MovieCard component
 
+import "../css/Home.css"
+
 function Home() {
   // State to store the user's search input
   const [searchQuery, setSearchQuery] = useState("");

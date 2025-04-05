@@ -1,5 +1,7 @@
 import React from 'react'
 
+import "../css/favourites.css"
+
 function Favourite() {
   return (
     <div className="favourite-empty">
